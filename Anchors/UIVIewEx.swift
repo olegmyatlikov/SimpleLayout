@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     func anchors(_ makeAnchor: ((OMLayout) -> Void)) {
         self.translatesAutoresizingMaskIntoConstraints = false

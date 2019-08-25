@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OMConstraint {
+public class OMConstraint {
     
     fileprivate var constraint: NSLayoutConstraint
     fileprivate let constraintsBox: OMConstraintsBox
@@ -28,20 +28,20 @@ class OMConstraint {
     }
     
     @discardableResult
-    func priority(_ value: UILayoutPriority) -> OMConstraint {
+    public func priority(_ value: UILayoutPriority) -> OMConstraint {
         constraint.priority = value
         return self
     }
     
     @discardableResult
-    func offset(_ value: CGFloat) -> OMConstraint {
+    public func offset(_ value: CGFloat) -> OMConstraint {
         let offset = needInvertOffset ? -value : value
         constraint.constant = offset
         return self
     }
     
     @discardableResult
-    func multiplier(_ value: CGFloat) -> OMConstraint {
+    public func multiplier(_ value: CGFloat) -> OMConstraint {
         let newConstraint = NSLayoutConstraint(item: constraint.firstItem!,
                                                attribute: constraint.firstAttribute,
                                                relatedBy: constraint.relation,

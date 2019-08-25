@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OMLayoutAnchor<T, U> where T: NSLayoutAnchor<U> {
+public class OMLayoutAnchor<T, U> where T: NSLayoutAnchor<U> {
     
     fileprivate let anchor: NSLayoutAnchor<T>
     fileprivate let constraintsBox: OMConstraintsBox
@@ -19,21 +19,21 @@ class OMLayoutAnchor<T, U> where T: NSLayoutAnchor<U> {
     }
     
     @discardableResult
-    func equalTo(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
+    public func equalTo(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(equalTo: anchor)
         constraintsBox.constraints.append(constraint)
         return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
-    func greateThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
+    public func greateThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(greaterThanOrEqualTo: anchor)
         constraintsBox.constraints.append(constraint)
         return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
-    func lessThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
+    public func lessThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(lessThanOrEqualTo: anchor)
         constraintsBox.constraints.append(constraint)
         return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
@@ -42,7 +42,7 @@ class OMLayoutAnchor<T, U> where T: NSLayoutAnchor<U> {
 }
 
 
-extension OMLayoutAnchor where U: NSLayoutDimension {
+public extension OMLayoutAnchor where U: NSLayoutDimension {
     
     @discardableResult
     func equalTo(_ value: CGFloat) -> OMConstraint {
