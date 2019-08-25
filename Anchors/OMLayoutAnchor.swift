@@ -11,30 +11,32 @@ import UIKit
 class OMLayoutAnchor<T, U> where T: NSLayoutAnchor<U> {
     
     fileprivate let anchor: NSLayoutAnchor<T>
+    fileprivate let constraintsBox: OMConstraintsBox
     
-    init(anchor: NSLayoutAnchor<T>) {
+    init(anchor: NSLayoutAnchor<T>, constraintsBox: OMConstraintsBox) {
         self.anchor = anchor
+        self.constraintsBox = constraintsBox
     }
     
     @discardableResult
     func equalTo(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(equalTo: anchor)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
     func greateThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(greaterThanOrEqualTo: anchor)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
     func lessThan(_ anchor: NSLayoutAnchor<T>) -> OMConstraint {
         let constraint = self.anchor.constraint(lessThanOrEqualTo: anchor)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
 }
@@ -46,24 +48,24 @@ extension OMLayoutAnchor where U: NSLayoutDimension {
     func equalTo(_ value: CGFloat) -> OMConstraint {
         let sizeAnchor = anchor as! NSLayoutAnchor<NSLayoutDimension> as! NSLayoutDimension
         let constraint = sizeAnchor.constraint(equalToConstant: value)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
     func greateThan(_ value: CGFloat) -> OMConstraint {
         let sizeAnchor = anchor as! NSLayoutAnchor<NSLayoutDimension> as! NSLayoutDimension
         let constraint = sizeAnchor.constraint(greaterThanOrEqualToConstant: value)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
     @discardableResult
     func lessThan(_ value: CGFloat) -> OMConstraint {
         let sizeAnchor = anchor as! NSLayoutAnchor<NSLayoutDimension> as! NSLayoutDimension
         let constraint = sizeAnchor.constraint(lessThanOrEqualToConstant: value)
-        constraint.isActive = true
-        return OMConstraint(constraint: constraint)
+        constraintsBox.constraints.append(constraint)
+        return OMConstraint(constraint: constraint, constraintsBox: constraintsBox)
     }
     
 }

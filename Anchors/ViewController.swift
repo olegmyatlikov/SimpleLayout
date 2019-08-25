@@ -30,7 +30,8 @@ class ViewController: UIViewController {
         }
         
         boxView.anchors { (make) in
-            make.width.equalTo(60)
+            make.width.equalTo(label.widthAnchor).multiplier(1.2)
+            make.height.equalTo(30)
             make.centerX.equalTo(view.centerXAnchor)
             make.bottom.equalTo(view.bottomAnchor).offset(50)
         }

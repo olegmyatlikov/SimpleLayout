@@ -12,8 +12,10 @@ extension UIView {
     
     func anchors(_ makeAnchor: ((OMLayout) -> Void)) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        let anchor = OMLayout(view: self)
+        let constrainsBox = OMConstraintsBox()
+        let anchor = OMLayout(view: self, constraintsBox: constrainsBox)
         makeAnchor(anchor)
+        constrainsBox.constraints.forEach { $0.isActive = true }
     }
     
 }

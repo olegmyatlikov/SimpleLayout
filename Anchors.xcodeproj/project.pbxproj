@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C2DFBFF2312F8B700EC10F6 /* OMConstraintsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DFBFE2312F8B700EC10F6 /* OMConstraintsBox.swift */; };
 		7C55366223111C3800D3ED82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55366123111C3800D3ED82 /* AppDelegate.swift */; };
 		7C55366423111C3800D3ED82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55366323111C3800D3ED82 /* SceneDelegate.swift */; };
 		7C55366623111C3800D3ED82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55366523111C3800D3ED82 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C2DFBFE2312F8B700EC10F6 /* OMConstraintsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMConstraintsBox.swift; sourceTree = "<group>"; };
 		7C55365E23111C3800D3ED82 /* Anchors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anchors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C55366123111C3800D3ED82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C55366323111C3800D3ED82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				7C55367523111CAF00D3ED82 /* OMLayout.swift */,
 				7C5536792311414300D3ED82 /* OMLayoutAnchor.swift */,
 				7C55368023114C0300D3ED82 /* OMConstraint.swift */,
+				7C2DFBFE2312F8B700EC10F6 /* OMConstraintsBox.swift */,
 				7C5536772311205E00D3ED82 /* UIVIewEx.swift */,
 				7C55366723111C3800D3ED82 /* Main.storyboard */,
 				7C55366A23111C3900D3ED82 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				7C55366423111C3800D3ED82 /* SceneDelegate.swift in Sources */,
 				7C5536782311205E00D3ED82 /* UIVIewEx.swift in Sources */,
 				7C55368123114C0300D3ED82 /* OMConstraint.swift in Sources */,
+				7C2DFBFF2312F8B700EC10F6 /* OMConstraintsBox.swift in Sources */,
 				7C55367A2311414300D3ED82 /* OMLayoutAnchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

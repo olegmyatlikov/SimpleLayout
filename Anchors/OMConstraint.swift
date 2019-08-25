@@ -10,7 +10,8 @@ import UIKit
 
 class OMConstraint {
     
-    fileprivate let constraint: NSLayoutConstraint
+    fileprivate var constraint: NSLayoutConstraint
+    fileprivate let constraintsBox: OMConstraintsBox
     
     private var needInvertOffset: Bool {
         switch constraint.firstAttribute {
@@ -21,8 +22,9 @@ class OMConstraint {
         }
     }
     
-    init(constraint: NSLayoutConstraint) {
+    init(constraint: NSLayoutConstraint, constraintsBox: OMConstraintsBox) {
         self.constraint = constraint
+        self.constraintsBox = constraintsBox
     }
     
     @discardableResult
@@ -35,6 +37,26 @@ class OMConstraint {
     func offset(_ value: CGFloat) -> OMConstraint {
         let offset = needInvertOffset ? -value : value
         constraint.constant = offset
+        return self
+    }
+    
+    @discardableResult
+    func multiplier(_ value: CGFloat) -> OMConstraint {
+        let newConstraint = NSLayoutConstraint(item: constraint.firstItem!,
+                                               attribute: constraint.firstAttribute,
+                                               relatedBy: constraint.relation,
+                                               toItem: constraint.secondItem,
+                                               attribute: constraint.secondAttribute,
+                                               multiplier: value,
+                                               constant: constraint.constant)
+        
+        if let oldConstraintIndex = constraintsBox.constraints.firstIndex(of: constraint) {
+            constraintsBox.constraints.remove(at: oldConstraintIndex)
+        }
+        
+        constraint = newConstraint
+        constraintsBox.constraints.append(newConstraint)
+        
         return self
     }
 
